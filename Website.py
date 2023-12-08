@@ -1,3 +1,6 @@
+import sys
+print(sys.executable)
+
 from flask import Flask, request, render_template
 import numpy as np
 from tensorflow.keras.models import load_model
@@ -21,6 +24,39 @@ def predict():
     # Extract age and gender
     age = form_data.get('age')
     gender = form_data.get('gender')
+    if age == '':
+       age = 48
+    if gender in ['0', '', None]:
+       gender = 'male'
+
+    # Extract height and weight
+    height_feet = form_data.get('height-feet')
+    if height_feet:
+        heightF = float(height_feet)
+    else:
+        heightF = 1.0
+    height_inches = form_data.get('height-inches')
+    if height_inches:
+        heightI = float(height_inches)
+    else:
+        heightI = 1.0
+    weight_str = form_data.get('weight')
+    if weight_str:
+        weight = float(weight_str)
+    else:
+        weight = 1.0
+
+    #calculate bmi
+    inches = heightI + heightF * 12
+    bmi = (weight / inches **2) * 703
+    print(f"User bmi: {bmi}")
+
+    # Check if "Obesity" is 0 and if bmi is greater than or equal to 30
+    form_data = form_data.to_dict()  # Convert ImmutableMultiDict to dict
+
+    obesity_value = form_data.get('Obesity')
+    if obesity_value in ['0', '', None] and bmi >= 30:
+        form_data['Obesity'] = '1'
 
     # Print age and gender
     print(f"User selected age: {age}")
@@ -41,7 +77,7 @@ def predict():
     features = [age, gender] + encoded_conditions
 
     # Convert features to numerical array
-    float_features = [float(x) for x in features]
+    float_features = [float(x) if x else 0.0 for x in features]
     features = np.array(float_features).reshape(1, -1)
 
     # Make prediction using the model
@@ -49,12 +85,14 @@ def predict():
 
     # Convert prediction to a readable format (if necessary)
     if prediction_proba[0][0] > 0.5:
-        prediction_text = "Diabetes: Positive, Probability: {:.2f}".format(prediction_proba[0][0])
+        prediction_text = "Positive"
     else:
-        prediction_text = "Diabetes: Negative, Probability: {:.2f}".format(1 - prediction_proba[0][0])
+        prediction_text = "Negative"
+
+    predictionProb = "{:.2f}".format(prediction_proba[0][0])
 
     # Pass the prediction, raw prediction value, and form data back to the template
-    return render_template("home.html", prediction=prediction_text, prediction_value=prediction_proba[0][0], form_data=form_data)
+    return render_template("home.html", prediction=prediction_text, prediction_prob=predictionProb, prediction_value=prediction_proba[0][0], form_data=form_data)
 
 if __name__ == "__main__":
     flask_app.run(debug=True)
