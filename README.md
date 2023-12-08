@@ -18,19 +18,35 @@ Scikit-Learn (sklearn)
 Pandas
 Seaborn
 
-pip install flask numpy tensorflow matplotlib sklearn pandas seaborn
-![image.png](attachment:6838b2bc-00e6-4f2e-81de-2fcc4c1bd7d1.png)
+pip install flask numpy tensorflow matplotlib scikit-learn pandas seaborn  
+![image](https://github.com/KebinLinn/Diabetes/assets/97716641/5faba6b3-658d-4657-86e7-3341acb8136f)
 
+
+Make sure you have Git installed if you do not have Git already installed, follow the below link.
+https://git-scm.com/downloads
 
 ## **Instructions to run the website locally**
-1. Download the required "Website.py", html file, and desired model (either RandomForrest.py or LinearRegression.py)
-3. Run the desired model. This will create an h5 file, which the website uses to predict diabetes. Skip this step if you have decided to use the included h5 file, which was obtained through the our best model (random forrest). 
-4. Run "Website.py" and click the IP address that is generated and running on your local machine (terminal) 
-   ![image.png](attachment:19d6b552-66f4-48a2-94af-875124acbd1c.png)
-5. Fill out the form  
-   ![image.png](attachment:5b2ee1fa-9d50-4c5d-8d48-916709942efe.png)
-6. Click Submit after filling out the form. After submitting the form, the outcome will be displayed below the *submit* button
-   ![image.png](attachment:00dc8410-ace0-4ca6-b83c-99e7846259f3.png)
+1. Open Visual Studio Code or any IDE
+   ![image](https://github.com/KebinLinn/Diabetes/assets/97716641/19d88ffe-0a8d-4a05-97d7-86a9f325ee11)
+2. Open a terminal on Visual Studio Code
+   ![image](https://github.com/KebinLinn/Diabetes/assets/97716641/7e14d11c-c3c6-4b15-90f5-80313020da34)
+3. Run the "git clone https://github.com/KebinLinn/Diabetes.git" command (without the "")
+   ![image](https://github.com/KebinLinn/Diabetes/assets/97716641/acdf5c7b-3fc3-466c-87a4-c4baee895bf4)
+4. Click on "File" then "Open Folder"
+   ![image](https://github.com/KebinLinn/Diabetes/assets/97716641/1198daab-7c18-4400-abb0-2f2a20d00d21)
+5. Locate and open the Diabete Folder
+6. Click on Website.py 
+   ![image](https://github.com/KebinLinn/Diabetes/assets/97716641/f694b162-5897-45f0-bb7a-f0761d308171)
+7. Click "Run" then "Run without Debugging" 
+   ![image](https://github.com/KebinLinn/Diabetes/assets/97716641/ea8a3872-b081-45c0-a653-7c725d31089c)
+8. Locate the highlighted selection which is called "Running on http://127.0.0.1:5000"
+   ![image](https://github.com/KebinLinn/Diabetes/assets/97716641/aac51dbe-38f1-4e8b-969f-996ab4bfeb81)
+9. Hover over the address and ctrl + left click the address.
+   ![image](https://github.com/KebinLinn/Diabetes/assets/97716641/d7321149-a2b5-474b-95d9-d5c367c29b5c)
+10. Fill out the form  
+   ![image](https://github.com/KebinLinn/Diabetes/assets/97716641/b2bf0342-62fa-4243-aef8-ecf8c4eba24d)
+10. Click Submit after filling out the form. After submitting the form, the outcome will be displayed below the *submit* button
+   ![image](https://github.com/KebinLinn/Diabetes/assets/97716641/81c96ca8-0c4e-442c-bd46-818e0279f515)
 
 
  
