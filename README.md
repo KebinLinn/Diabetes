@@ -1,12 +1,11 @@
 # Diabetes Prediction Project
 
-This project is designed to predict diabetes using machine learning models and data visualization techniques. The project consists of five main components:
+This project is designed to predict diabetes using machine learning models and data visualization techniques. The project consists of four main components:
 
 Machine Learning Models: The project uses two machine learning models - Linear Regression and Random Forest for predictions.  
 Data Visualization: The project includes code that generates a heatmap to visualize the dataset and understand the relationship between the features.  
 Web Interface: An HTML file is used to control the layout and appearance of the website and structure the web page.  
 Website: A file named “Website.py" which runs the website locally using flask and incorporates the model through a h5 file   
-h5 File: A h5 created when running either model; used so that the website can interact with the model
 
 ## **Required Packages**
 The following packages are required to run the models and the website:
