@@ -127,17 +127,22 @@
                 <input type="checkbox" id="Obesity" name="Obesity" {% if form_data.get('Obesity') %} checked {% endif %}>
 <label for="Obesity">Obesity</label><br>
             </div>
+	<h4>
             <div class="form-element">
                 <input type="submit" value="Submit">
             </div>
             <div class="center-text">
-                {% if prediction %}
-                    <p>Predicted Class: {{ prediction }}</p>
+                {% if prediction == "Positive" %}
+                    <p>Early Stage Diabetes Detection Result: <span style="color: red;">{{ prediction }}</span></p>
+                {% elif prediction == "Negative" %}
+                    <p>Early Stage Diabetes Detection Result: <span style="color: green;">{{ prediction }}</span></p>
                 {% endif %}
                 {% if prediction_value %}
+                    <p>Detection Probability: {{ prediction_prob }}</p>
                     <p>Raw prediction value: {{ prediction_value }}</p>
                 {% endif %}
             </div>
+	</h4>
         </form>
     </div>
 </body>
